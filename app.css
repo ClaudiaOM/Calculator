@@ -40,6 +40,22 @@ body{
     box-shadow: 5px 5px #292929;
 }
 
+#display{
+    margin-left: auto;
+    width: 90%;
+    display: flex;
+    justify-content: end;   
+    margin-right: 2px;
+}
+
+#display > p {
+    margin: 2px;
+}
+
+#display-text{
+    font-size: 70px;
+}
+
 #topbuttons, #buttons{
     display: flex;
     width: 100%;
@@ -96,6 +112,7 @@ body{
     background-color: #f5a34d;
     color: white;
 }
+
 
 
 /* ==================================================================================================================== */

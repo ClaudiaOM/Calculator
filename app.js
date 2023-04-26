@@ -1,11 +1,14 @@
 
-let displayValue =  "0";
+let displayValue =  "";
 
 let operation = {
     first: 0,
     second: 0,
     operator: ""
 }
+
+let displayValueSelector = document.getElementById("display-text");
+
 
 
 function add(number1, number2){
@@ -43,4 +46,15 @@ function operate(number1, number2, operator){
     operation.first = res;
     operation.second = 0;
     return operation.first;
+}
+
+function typeNumber(number){
+    if(displayValue.length < 14){
+        displayValue = displayValue + number;
+        displayValueSelector.innerText = displayValue;
+    }
+    else{
+        alert("Max number of digits reached");
+    }
+
 }
