@@ -85,3 +85,10 @@ function typeEquals(){
     displayHistorySelector.innerHTML = "";
     operation.equals = true;
 }
+
+function typeClear(){
+    displayValue = "";
+    displayHistory = "";
+    displayValueSelector.innerText = "0";
+    displayHistorySelector.innerText = "";
+}
