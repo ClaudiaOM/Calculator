@@ -1,13 +1,16 @@
 
 let displayValue =  "";
+let displayHistory =  "";
 
 let operation = {
     first: 0,
     second: 0,
-    operator: ""
+    operator: "",
+    equals : false
 }
 
 let displayValueSelector = document.getElementById("display-text");
+let displayHistorySelector = document.getElementById("display-history");
 
 
 
@@ -37,7 +40,7 @@ function operate(number1, number2, operator){
     else if(operator == "-"){        
         res = sub(number1, number2);
     }
-    else if(operator == "*"){        
+    else if(operator == "x"){        
         res = mul(number1, number2);
     }
     else if(operator == "/"){        
@@ -49,7 +52,11 @@ function operate(number1, number2, operator){
 }
 
 function typeNumber(number){
-    if(displayValue.length < 14){
+    if(operation.equals){
+        operation.equals = false;
+        displayValue = "";
+    }
+    if(!operation.equals && displayValue.length < 14){
         displayValue = displayValue + number;
         displayValueSelector.innerText = displayValue;
     }
@@ -57,4 +64,24 @@ function typeNumber(number){
         alert("Max number of digits reached");
     }
 
+}
+
+function typeOperator(operator){
+    operation.first = displayValue;
+    operation.operator = operator;
+    displayHistory = displayValue + " "  + operator + " ";
+    displayHistorySelector.innerText = displayHistory;
+    displayValue = "";
+    displayValueSelector.innerText = "0";
+}
+
+function typeEquals(){
+    operation.second = displayValue;
+    let result = operate(Number(operation.first), Number(operation.second), operation.operator)
+    displayValue = result + "";
+    operation.first = result;
+    displayValueSelector.innerText = displayValue;
+    displayHistory = "";
+    displayHistorySelector.innerHTML = "";
+    operation.equals = true;
 }

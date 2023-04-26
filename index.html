@@ -15,6 +15,7 @@
     <div id="calculator">
         <div id="screen">
             <div id="display">
+                <span id="display-history"></span>
                 <p id="display-text">0</p>
             </div>
         </div>
@@ -25,19 +26,19 @@
             <div class="number" onclick="typeNumber('7')">7</div>
             <div class="number" onclick="typeNumber('8')">8</div>
             <div class="number" onclick="typeNumber('9')">9</div>
-            <div class="op">/</div>
+            <div class="op" onclick="typeOperator('/')">/</div>
             <div class="number" onclick="typeNumber('4')">4</div>
             <div class="number" onclick="typeNumber('5')">5</div>
             <div class="number" onclick="typeNumber('6')">6</div>
-            <div class="op">x</div>
+            <div class="op" onclick="typeOperator('x')">x</div>
             <div class="number" onclick="typeNumber('1')">1</div>
             <div class="number" onclick="typeNumber('2')">2</div>
             <div class="number" onclick="typeNumber('3')">3</div>
-            <div class="op">-</div>
+            <div class="op" onclick="typeOperator('-')">-</div>
             <div class="number" onclick="typeNumber('0')">0</div>
             <div class="op">.</div>
-            <div class="op">+</div>
-            <div class="equal">=</div>
+            <div class="op" onclick="typeOperator('+')">+</div>
+            <div class="equal" onclick="typeEquals()">=</div>
         </div>
     </div>
 
