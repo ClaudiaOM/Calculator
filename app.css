@@ -13,6 +13,24 @@ body{
     font-family: 'Orbitron', sans-serif;
 }
 
+footer{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+footer  i{
+    color: white; 
+    margin-left: 15px;
+}
+
 /* ==================================================================================================================== */
 /*                                                END GENERAL STYLES                                                    */ 
 /* ==================================================================================================================== */
