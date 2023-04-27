@@ -10,6 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     height:auto;
+    font-family: 'Orbitron', sans-serif;
 }
 
 /* ==================================================================================================================== */
@@ -61,7 +62,7 @@ body{
 }
 
 #display-text{
-    font-size: 70px;
+    font-size: 50px;
 }
 
 #display-history{
