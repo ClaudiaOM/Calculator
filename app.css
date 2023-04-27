@@ -92,10 +92,11 @@ body{
     width: 23%; 
     border: 3px solid #575757;
     border-radius: 30px;
-    text-align: center;
-    align-self: center;
     box-shadow: 2px 3px #292929;
     font-size: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 #buttons{  
@@ -112,7 +113,10 @@ body{
     text-align: center;
     align-self: center;
     box-shadow: 2px 3px #292929;
-    font-size: 30px;
+    font-size: 30px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .number{
@@ -128,6 +132,11 @@ body{
 .equal{
     background-color: #f5a34d;
     color: white;
+}
+
+#buttons div:active, #topbuttons div:active{
+    box-shadow: 2px 3px #575757;
+    border: 3px solid #575757;
 }
 
 
