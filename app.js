@@ -51,9 +51,13 @@ function operate(number1, number2, operator){
             res = div(number1, number2);
         }
     }
-    operation.first = res;
+    operation.first = parseFloat(res.toFixed(5));
     operation.second = 0;
-    return operation.first.toFixed(5);
+    let str = operation.first + "";
+    if(str.length + "" > 10){
+        return "OVERFLOW!"
+    }
+    return operation.first;
 }
 
 function typeNumber(number){
@@ -61,7 +65,7 @@ function typeNumber(number){
         operation.equals = false;
         displayValue = "";
     }
-    if(!operation.equals && displayValue.length < 14){
+    if(!operation.equals && displayValue.length < 11){
         displayValue = displayValue + number;
         displayValueSelector.innerText = displayValue;
     }
@@ -74,7 +78,7 @@ function typeNumber(number){
 function typeOperator(operator){
     if(operation.first){
         let res = operate(Number(operation.first), Number(displayValue), operation.operator)
-        displayValue = res + "";
+        displayValue = res;
     }
     operation.first = displayValue;
     displayHistory = displayValue + " "  + operator + " ";
@@ -87,7 +91,7 @@ function typeOperator(operator){
 function typeEquals(){
     operation.second = displayValue;
     let result = operate(Number(operation.first), Number(operation.second), operation.operator)
-    displayValue = result + "";
+    displayValue = result;
     operation.first = null;
     displayValueSelector.innerText = displayValue;
     displayHistory = "";
