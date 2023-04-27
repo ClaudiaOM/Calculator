@@ -53,7 +53,7 @@ function operate(number1, number2, operator){
     }
     operation.first = res;
     operation.second = 0;
-    return operation.first;
+    return operation.first.toFixed(5);
 }
 
 function typeNumber(number){
@@ -104,4 +104,11 @@ function typeClear(){
     operation.second = null;
     operation.equals = false;
     operation.operator = "";
+}
+
+function typeDot(){
+    if(!displayValue.includes('.')){
+        displayValue = displayValue + ".";
+        displayValueSelector.innerText = displayValue;
+    }
 }
