@@ -43,8 +43,13 @@ function operate(number1, number2, operator){
     else if(operator == "x"){        
         res = mul(number1, number2);
     }
-    else if(operator == "/"){        
-        res = div(number1, number2);
+    else if(operator == "/"){     
+        if(number2 == 0){
+            res = "ERROR!";
+        }
+        else{
+            res = div(number1, number2);
+        }
     }
     operation.first = res;
     operation.second = 0;
@@ -67,9 +72,13 @@ function typeNumber(number){
 }
 
 function typeOperator(operator){
+    if(operation.first){
+        let res = operate(Number(operation.first), Number(displayValue), operation.operator)
+        displayValue = res + "";
+    }
     operation.first = displayValue;
-    operation.operator = operator;
     displayHistory = displayValue + " "  + operator + " ";
+    operation.operator = operator;
     displayHistorySelector.innerText = displayHistory;
     displayValue = "";
     displayValueSelector.innerText = "0";
@@ -79,7 +88,7 @@ function typeEquals(){
     operation.second = displayValue;
     let result = operate(Number(operation.first), Number(operation.second), operation.operator)
     displayValue = result + "";
-    operation.first = result;
+    operation.first = null;
     displayValueSelector.innerText = displayValue;
     displayHistory = "";
     displayHistorySelector.innerHTML = "";
@@ -91,4 +100,8 @@ function typeClear(){
     displayHistory = "";
     displayValueSelector.innerText = "0";
     displayHistorySelector.innerText = "";
+    operation.first = null;
+    operation.second = null;
+    operation.equals = false;
+    operation.operator = "";
 }
