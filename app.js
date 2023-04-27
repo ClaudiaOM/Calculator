@@ -112,3 +112,10 @@ function typeDot(){
         displayValueSelector.innerText = displayValue;
     }
 }
+
+function typeBackspace(){
+    if(displayValue != null && displayValue.length > 0){
+        displayValue = displayValue.slice(0,displayValue.length - 1);
+        displayValueSelector.innerText = displayValue;
+    }
+}
