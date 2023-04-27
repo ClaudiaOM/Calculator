@@ -45,7 +45,7 @@ function operate(number1, number2, operator){
     }
     else if(operator == "/"){     
         if(number2 == 0){
-            res = "ERROR!";
+            return "ERROR!";
         }
         else{
             res = div(number1, number2);
@@ -61,6 +61,9 @@ function operate(number1, number2, operator){
 }
 
 function typeNumber(number){
+    if(displayValue == "ERROR!" || displayValue == "OVERFLOW!"){
+        displayValue = "";
+    }
     if(operation.equals){
         operation.equals = false;
         displayValue = "";
@@ -76,6 +79,9 @@ function typeNumber(number){
 }
 
 function typeOperator(operator){
+    if(displayValue == "ERROR!" || displayValue == "OVERFLOW!"){
+        displayValue = "";
+    }
     if(operation.first){
         let res = operate(Number(operation.first), Number(displayValue), operation.operator)
         displayValue = res;
@@ -89,6 +95,9 @@ function typeOperator(operator){
 }
 
 function typeEquals(){
+    if(displayValue == "ERROR!" || displayValue == "OVERFLOW!"){
+        displayValue = "";
+    }
     operation.second = displayValue;
     let result = operate(Number(operation.first), Number(operation.second), operation.operator)
     displayValue = result;
@@ -111,6 +120,9 @@ function typeClear(){
 }
 
 function typeDot(){
+    if(displayValue == "ERROR!" || displayValue == "OVERFLOW!"){
+        displayValue = "";
+    }
     if(!displayValue.includes('.')){
         displayValue = displayValue + ".";
         displayValueSelector.innerText = displayValue;
